@@ -59,7 +59,7 @@ Create CustomUser records in the admin panel to simulate user registrations via 
    ```bash
    python bot.py
 
-##Usage
+## Usage
 Start a conversation with your Telegram bot by sending the /start command.
 
 Follow the prompts to provide your email, first name, surname, telephone, and password for registration.
@@ -68,5 +68,5 @@ The bot will create a new user account based on the provided information and sto
 
 You can access the registered users in the Django admin panel.
 
-##Contributing
+## Contributing
 Contributions are welcome! If you'd like to improve this project or report issues, please open an issue or submit a pull request.
