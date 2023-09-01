@@ -57,7 +57,7 @@ Create CustomUser records in the admin panel to simulate user registrations via 
 
 7. **Start the Telegram bot by running:**
    ```bash
-   python bot.py
+   python telegrambot.py
 
 ## Usage
 Start a conversation with your Telegram bot by sending the /start command.
