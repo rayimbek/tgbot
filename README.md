@@ -47,14 +47,15 @@ Create a bot with the BotFather on Telegram and obtain your bot token.
 
 Replace "YOUR_BOT_TOKEN" in the bot.py file with your bot token.
 
-Start the Django development server:
+6. **Start the Django development server:**
    ```bash
    python manage.py runserver
+   
 Access the Django admin panel at http://localhost:8000/admin/ and log in using the superuser credentials created earlier.
 
 Create CustomUser records in the admin panel to simulate user registrations via the Telegram bot.
 
-Start the Telegram bot by running:
+7. **Start the Telegram bot by running:**
    ```bash
    python bot.py
 
