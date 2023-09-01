@@ -20,20 +20,26 @@ Before running the bot, ensure you have the following prerequisites installed:
    git clone https://github.com/rayimbek/tgbot.git
    cd telegrambot
 
+
+2. **Installation:**
+
    ```bash
    pip install django
    pip install djangorestframework
    pip install djoser
 
-You can install the required Python packages using `pip`:
+3. **You can install the required Python packages using `pip`::**
+
 
    ```bash
    pip install python-telegram-bot
 
+4. **Make migrations:**
+
    ```bash
    python manage.py makemigrations
    python manage.py migrate
-Create a superuser for accessing the Django admin panel:
+5. **Create a superuser for accessing the Django admin panel::**
 
    ```bash
    python manage.py createsuperuser
