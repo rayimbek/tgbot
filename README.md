@@ -20,34 +20,37 @@ Before running the bot, ensure you have the following prerequisites installed:
    git clone https://github.com/rayimbek/tgbot.git
    cd telegrambot
 
-pip install django
-pip install djangorestframework
-pip install djoser
+   ```bash
+   pip install django
+   pip install djangorestframework
+   pip install djoser
 
 You can install the required Python packages using `pip`:
 
-pip install django python-telegram-bot
+   ```bash
+   pip install python-telegram-bot
 
-
-python manage.py makemigrations
-python manage.py migrate
+   ```bash
+   python manage.py makemigrations
+   python manage.py migrate
 Create a superuser for accessing the Django admin panel:
 
-python manage.py createsuperuser
+   ```bash
+   python manage.py createsuperuser
 Create a bot with the BotFather on Telegram and obtain your bot token.
 
 Replace "YOUR_BOT_TOKEN" in the bot.py file with your bot token.
 
 Start the Django development server:
-
-python manage.py runserver
+   ```bash
+   python manage.py runserver
 Access the Django admin panel at http://localhost:8000/admin/ and log in using the superuser credentials created earlier.
 
 Create CustomUser records in the admin panel to simulate user registrations via the Telegram bot.
 
 Start the Telegram bot by running:
-
-python bot.py
+   ```bash
+   python bot.py
 
 ##Usage
 Start a conversation with your Telegram bot by sending the /start command.
