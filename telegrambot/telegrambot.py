@@ -43,7 +43,12 @@ def register_email(update: Update, context: CallbackContext) -> int:
 
 
 def register_name(update: Update, context: CallbackContext) -> int:
-    context.user_data['first_name'] = update.message.text
+    name = update.message.text
+    if len(name) < 3:
+        update.message.reply_text("The name is too short Please provide a different name.")
+        return REGISTER_NAME
+
+    context.user_data['first_name'] = name
 
     update.message.reply_text("Now, please provide your surname:")
     return REGISTER_SURNAME
