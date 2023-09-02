@@ -74,6 +74,7 @@ def register_phone(update: Update, context: CallbackContext) -> int:
 
 
 def register_password(update: Update, context: CallbackContext) -> int:
+
     code = update.message.text
     if len(code) < 8:
         update.message.reply_text("The password is too easy. Please provide a different password.")
