@@ -26,7 +26,6 @@ def start(update: Update, context: CallbackContext) -> int:
 
 def register_email(update: Update, context: CallbackContext) -> int:
     email = update.message.text
-
     # Basic email validation
     if "@" not in email:
         update.message.reply_text("Invalid email format. Please provide a valid email address.")
@@ -45,9 +44,12 @@ def register_email(update: Update, context: CallbackContext) -> int:
 def register_name(update: Update, context: CallbackContext) -> int:
     name = update.message.text
     if len(name) < 3:
-        update.message.reply_text("The name is too short Please provide a different name.")
+        update.message.reply_text("The name is too short. Please provide a different name.")
         return REGISTER_NAME
 
+    if CustomUser.objects.filter(first_name=name).exists():
+        update.message.reply_text("This user is already registered. Please provide a different name.")
+        return REGISTER_EMAIL
     context.user_data['first_name'] = name
 
     update.message.reply_text("Now, please provide your surname:")
@@ -61,13 +63,22 @@ def register_surname(update: Update, context: CallbackContext) -> int:
 
 
 def register_phone(update: Update, context: CallbackContext) -> int:
-    context.user_data['telephone'] = update.message.text
+    phone = update.message.text
+    if len(phone) < 4:
+        update.message.reply_text("The phone number is too short. Please provide a different number.")
+        return REGISTER_PHONE
+
+    context.user_data['telephone'] = phone
     update.message.reply_text("Finally, please provide your password:")
     return REGISTER_PASSWORD
 
 
 def register_password(update: Update, context: CallbackContext) -> int:
-    context.user_data['password'] = update.message.text
+    code = update.message.text
+    if len(code) < 8:
+        update.message.reply_text("The password is too easy. Please provide a different password.")
+        return REGISTER_PASSWORD
+    context.user_data['password'] = code
     update.message.reply_text("Please confirm your password:")
     return REGISTER_CONFIRM_PASSWORD
 
@@ -91,7 +102,7 @@ def register_confirm_password(update: Update, context: CallbackContext) -> int:
         custom_user = CustomUser(user= user,email=email   , first_name=first_name, surname=surname, telephone=telephone, password=password)
         custom_user.save()
 
-        update.message.reply_text("You are now registered!")
+        update.message.reply_text("You have successfully registered with these details:\nName: {}\nSurname: {}\nEmail: {}\nPhone Number: {}".format(first_name,surname,email,telephone))
 
         return ConversationHandler.END
     else:
