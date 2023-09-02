@@ -43,10 +43,6 @@ Before running the bot, ensure you have the following prerequisites installed:
 
    ```bash
    python manage.py createsuperuser
-Create a bot with the BotFather on Telegram and obtain your bot token.
-
-Replace "YOUR_BOT_TOKEN" in the bot.py file with your bot token.
-
 6. **Start the Django development server:**
    ```bash
    python manage.py runserver
@@ -58,7 +54,7 @@ Create CustomUser records in the admin panel to simulate user registrations via 
 7. **Start the Telegram bot by running:**
    ```bash
    python telegrambot.py
-
+   the username: @raikodrf_bot
 ## Usage
 Start a conversation with your Telegram bot by sending the /start command.
 
